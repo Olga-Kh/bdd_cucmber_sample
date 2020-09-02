@@ -47,12 +47,12 @@ public class StepDefinitions {
     new LoginPage().navigateTo();
   }
 
-  @Then("^I enter user name - \"(.*?)\"$")
+  @Then("^I enter username as \"(.*?)\"$")
   public void enterUserName(String userName) {
     new LoginPage().enterUserName(userName);
   }
 
-  @Then("^I enter password - \"(.*?)\"$")
+  @Then("^I enter password as \"(.*?)\"$")
   public void enterPassword(String password) {
     new LoginPage().enterPassword(password);
   }
