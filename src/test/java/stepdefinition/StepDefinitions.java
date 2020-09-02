@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import pages.CreateIssuePage;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.WebDriverFactory;
@@ -72,9 +73,25 @@ public class StepDefinitions {
     assert new LoginPage().isErrorDisplayed();
   }
 
-
   @When("^I debug$")
   public void debug() {
     int a = 0;
   }
+
+  @Then("^I click on Create issue button$")
+  public void clickCreateButton() {
+    new CreateIssuePage().clickIssueCreate();
+  }
+
+  @When("^I am on Create issue form$")
+  public void isProjectFieldDisplayed() {
+    assert new CreateIssuePage().projectFieldDisplayed();
+  }
+
+  @Then("^I enter project name as \"(.*?)\"$")
+  public void inputProjectName(String project) {
+    new CreateIssuePage().editProjectName(project);
+  }
+
+
 }
