@@ -25,14 +25,6 @@ public class CreateIssuePage {
   private By submitIssue = By.id("create-issue-submit");
   private By successPopup = By.className("aui-message-success");
 
-
-/*  public CreateIssuePage(WebDriver driver) {
-
-    this.driver = driver;
-    this.wait = new WebDriverWait(driver, Duration.ofSeconds(20).getSeconds());
-
-  }*/
-
   public void clickIssueCreate() {
     WebDriverFactory.getDriver().findElement(createButton).click();
   }
@@ -47,80 +39,43 @@ public class CreateIssuePage {
     WebDriverFactory.getDriver().findElement(projectField).sendKeys(project);
     WebDriverFactory.getDriver().findElement(projectField).sendKeys(Keys.TAB);
   }
-/*  public void clickProjectField() {
-    driver.findElement(projectField).click();
-  }*/
-
-  /*public void inputProjectField(String project) {
-    driver.findElement(projectField).sendKeys(project);
-  }*/
-
-/*  public void leaveProjectField() {
-    driver.findElement(projectField).sendKeys(Keys.TAB);
-  }*/
 
   public void editIssueType(String issue) {
+    WebDriverWait wait = new WebDriverWait(WebDriverFactory.getDriver(), Duration.ofSeconds(5).getSeconds());
+    wait.until(elementToBeClickable(issueTypeField)).isEnabled();
     WebDriverFactory.getDriver().findElement(issueTypeField).click();
     WebDriverFactory.getDriver().findElement(issueTypeField).sendKeys(issue);
     WebDriverFactory.getDriver().findElement(issueTypeField).sendKeys(Keys.TAB);
   }
-  public boolean isIssueTypeFieldClickable() {
-    return wait.until(elementToBeClickable(issueTypeField)).isDisplayed();
+
+  public void editSummary(String summary) {
+    WebDriverWait wait = new WebDriverWait(WebDriverFactory.getDriver(), Duration.ofSeconds(5).getSeconds());
+    wait.until(elementToBeClickable(summaryInputField)).isEnabled();
+    WebDriverFactory.getDriver().findElement(summaryInputField).click();
+    WebDriverFactory.getDriver().findElement(summaryInputField).sendKeys(summary);
+    WebDriverFactory.getDriver().findElement(summaryInputField).sendKeys(Keys.TAB);
   }
 
-  public void clickIssueType() {
-    driver.findElement(issueTypeField).click();
+  public void editReporter(String reporterName) {
+    WebDriverWait wait = new WebDriverWait(WebDriverFactory.getDriver(), Duration.ofSeconds(5).getSeconds());
+    wait.until(elementToBeClickable(reporterField)).isEnabled();
+    WebDriverFactory.getDriver().findElement(reporterField).clear();
+    WebDriverFactory.getDriver().findElement(reporterField).sendKeys(reporterName);
+    WebDriverFactory.getDriver().findElement(reporterField).sendKeys(Keys.TAB);
   }
 
-  public void inputIssueType(String issue) {
-    driver.findElement(issueTypeField).sendKeys(issue);
-  }
-
-  public void leaveIssueType() {
-    driver.findElement(issueTypeField).sendKeys(Keys.TAB);
-  }
-
-  public boolean isSummaryFieldClickable() {
-    return wait.until(elementToBeClickable(summaryInputField)).isDisplayed();
-  }
-
-  public void inputSummary(String summary) {
-    driver.findElement(summaryInputField).sendKeys(summary);
-  }
-
-  public boolean isReporterFieldClickable() {
-    return wait.until(elementToBeClickable(reporterField)).isDisplayed();
-  }
-
-  public void clearReporterField() {
-    driver.findElement(reporterField).clear();
-  }
-
-  public void inputReporter(String reporterName) {
-    driver.findElement(reporterField).sendKeys(reporterName);
-  }
-
-  public void leaveReporterField() {
-    driver.findElement(reporterField).sendKeys(Keys.TAB);
-  }
-
-  public void clickTextTab() {
-    driver.findElement(textTab).click();
-  }
-
-  public void clickDescriptionField() {
-    driver.findElement(textTab).click();
-  }
-
-  public void inputDescription(String descrText) {
-    driver.findElement(descriptionField).sendKeys(descrText);
+  public void editText(String descrText) {
+    WebDriverFactory.getDriver().findElement(textTab).click();
+    WebDriverFactory.getDriver().findElement(descriptionField).click();
+    WebDriverFactory.getDriver().findElement(descriptionField).sendKeys(descrText);
   }
 
   public void clickSubmitIssue() {
-    driver.findElement(submitIssue).click();
+    WebDriverFactory.getDriver().findElement(submitIssue).click();
   }
 
   public boolean isSuccessPopupDisplayed() {
+    WebDriverWait wait = new WebDriverWait(WebDriverFactory.getDriver(), Duration.ofSeconds(5).getSeconds());
     return wait.until(presenceOfElementLocated(successPopup)).isDisplayed();
   }
 }

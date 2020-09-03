@@ -12,9 +12,20 @@ Feature: Create Issue
       When I click on Create issue button
       Then I am on Create issue form
       And I enter project name as "Webinar (WEBINAR)"
-      #And I enter issue type as "Test"
-      #And I enter summary as "Summary"
-      #And I enter reporter name as "OlgaKhobina"
-      #And I enter description as "Some description"
-      #And I click on Submit issue button
-      #Then I can see a Success popup window
+      And I enter issue type as "Test"
+      And I enter summary as "Summary"
+      And I enter reporter name as "OlgaKhobina"
+      And I enter description as "Some description"
+      And I click on Submit issue button
+      Then I can see a Success popup window
+
+    Scenario: Create Second Jira Issue
+      When I click on Create issue button
+      Then I am on Create issue form
+      And I enter project name as "Webinar (WEBINAR)"
+      And I enter issue type as "Bug"
+      And I enter summary as "SecondIssueSummary"
+      And I enter reporter name as "OlgaKhobina"
+      And I enter description as "Some description of second issue"
+      And I click on Submit issue button
+      Then I can see a Success popup window

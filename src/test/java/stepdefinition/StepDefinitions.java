@@ -93,5 +93,33 @@ public class StepDefinitions {
     new CreateIssuePage().editProjectName(project);
   }
 
+  @Then("^I enter issue type as \"(.*?)\"$")
+  public void inputIssueType(String project) {
+    new CreateIssuePage().editIssueType(project);
+  }
 
+  @Then("^I enter summary as \"(.*?)\"$")
+  public void inputSummary(String project) {
+    new CreateIssuePage().editSummary(project);
+  }
+
+  @Then("^I enter reporter name as \"(.*?)\"$")
+  public void inputReporter(String reporterName) {
+    new CreateIssuePage().editReporter(reporterName);
+  }
+
+  @Then("^I enter description as \"(.*?)\"$")
+  public void inputText(String descrText) {
+    new CreateIssuePage().editText(descrText);
+  }
+
+  @Then("^I click on Submit issue button$")
+  public void submitIssue() {
+    new CreateIssuePage().clickSubmitIssue();
+  }
+
+  @When("^I can see a Success popup window$")
+  public void isPopupWindowDisplayed() {
+    assert new CreateIssuePage().isSuccessPopupDisplayed();
+  }
 }
