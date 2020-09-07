@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.WebDriverFactory;
 
@@ -13,8 +12,6 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 
 public class CreateIssuePage {
 
-  private WebDriver driver = null;
-  private WebDriverWait wait = null;
   private By createButton = By.id("create_link");
   private By projectField = By.id("project-field");
   private By issueTypeField = By.id("issuetype-field");
